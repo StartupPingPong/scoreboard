@@ -1,4 +1,4 @@
-# Startup Ping-Pong Gbg 
+# Startup Ping-Pong Gbg
 
 ## Scoreboard App
 
@@ -6,21 +6,39 @@ App to be used during **Startup Ping Pong** events
 
 ## Setting up
 
-1. Install json server
+1. In project root
 
 ```
-npm i -g json-server
+yarn install
 ```
 
-2. Run the app
+2. Set a port for the backend
 
 ```
-npm run start
+set PORT=3001
+```
+
+3. Run the server
+
+```
+nodemon bin/www
+```
+
+4. In the client folder
+
+```
+yarn install
+```
+
+5. Run the client
+
+```
+yarn start
 ```
 
 ## Instructions
 
-The `Scoreboard` App uses a `db.json` as database. This database contains information of tournaments and currently signed up teams.
+The `Scoreboard` App display and manages information of tournaments and currently signed up teams.
 
 ## Acknowledgement
 
