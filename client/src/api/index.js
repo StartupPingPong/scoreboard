@@ -1,5 +1,7 @@
 import axios from "axios";
 
-const getAllTeams = () => {
-  return axios.get("/teams").then(res => res.teams);
+export const getAllTeams = () => {
+  return axios.get("/teams").then(res => {
+    return res.data.teams;
+  });
 };
