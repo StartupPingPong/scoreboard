@@ -4,8 +4,7 @@ node_js:
 cache:
   directories:
    - node_modules
-   - ./client/node_modules
-  language: node_js
+   - $TEST_DIR node_modules
 env:
    - TEST_DIR=client
-script: cd $TEST_DIR && npm install && npm testt
+script: cd $TEST_DIR && npm install && npm test
