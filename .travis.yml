@@ -5,10 +5,8 @@ cache:
   directories:
    - node_modules
    - ./client/node_modules
-   language: node_js
-   node_js:
-     - "0.11"
-     - "0.10"
-   env:
-     - TEST_DIR=tilt-client
-   script: cd $TEST_DIR && npm install && npm test
+  language: node_js
+env:
+   - TEST_DIR=tilt-client
+   - TEST_DIR=tilt-server
+script: cd $TEST_DIR && npm install && npm testt
