@@ -1,5 +1,7 @@
 # Startup Ping-Pong Gbg
 
+[![Build Status](https://travis-ci.org/StartupPingPong/scoreboard.svg?branch=master)](https://travis-ci.org/StartupPingPong/scoreboard)
+
 ## Scoreboard App
 
 App to be used during **Startup Ping Pong** events
