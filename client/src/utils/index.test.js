@@ -1,5 +1,5 @@
 import enzyme from "enzyme";
-import { matchMaker } from "./";
+import { matchMaker, isPowerOfTwo } from "./";
 
 describe("Given 2^n teams, it returns paired matches", () => {
   let teams = ["a", "b", "c", "d", "e", "f", "g", "h"];
@@ -9,10 +9,32 @@ describe("Given 2^n teams, it returns paired matches", () => {
   let noMatches = matchMaker(incorrect);
 
   it("does not create matches for number fo teams different than 2^n", () => {
-    expect(noMatches).toEqual([]);
+    expect(noMatches.length).toEqual(0);
   });
 
   it("creates a matches array of half the length of teams", () => {
     expect(matches.length).toEqual(teams.length / 2);
+  });
+
+  describe("isPowerOfTwo validates numbers correctly", () => {
+    let testArr = [0, 1, 2, 3, 4, 7, 8, 9, 10, 256, -16, "a"];
+    let expectedAnswer = [
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false
+    ];
+
+    it("returns the expected answer", () => {
+      expect(testArr.map(e => isPowerOfTwo(e))).toEqual(expectedAnswer);
+    });
   });
 });
