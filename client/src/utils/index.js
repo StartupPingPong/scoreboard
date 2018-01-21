@@ -3,17 +3,22 @@ import shuffle from "shuffle-array";
 /**
  * Function to make matches between 2^n teams
  * @param teams array
+ *
+ * @returns matches
  */
 
 let config = { copy: true };
 
 export const matchMaker = teams => {
   const total = teams.length;
-  //TODO: check the length of teams array,
-  // it should be a 2^n number
+  if (!isPowerOfTwo(total)) {
+    return [];
+  }
   const shuffledTeams = shuffle(teams, config);
+
   const upperHalf = shuffledTeams.slice(0, total / 2);
   const lowerHalf = shuffledTeams.slice(total / 2 + 1);
+
   const shuffledUpperHalf = shuffle(upperHalf, config);
   const shuffledLowerHalf = shuffle(lowerHalf, config);
 
@@ -25,4 +30,19 @@ export const matchMaker = teams => {
     }
   }));
   return matches;
+};
+
+/**
+ * @param num to test of shape 2^n, n > 0
+ */
+
+export const isPowerOfTwo = num => {
+  if (num <= 0) {
+    return false;
+  }
+  if (num % 2 === 0) {
+    return num / 2 === 1 ? true : isPowerOfTwo(num / 2);
+  } else {
+    return false;
+  }
 };
