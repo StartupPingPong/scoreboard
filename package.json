@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "cd client && yarn test",
+    "build:client": "cd client && npm install",
     "heroku-postbuild":
       "cd client && npm install --only=dev && npm install && npm run build"
   },
