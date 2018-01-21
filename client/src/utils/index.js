@@ -1,14 +1,13 @@
 import shuffle from "shuffle-array";
 
+let config = { copy: true };
+
 /**
  * Function to make matches between 2^n teams
  * @param teams array
  *
  * @returns matches
  */
-
-let config = { copy: true };
-
 export const matchMaker = teams => {
   const total = teams.length;
   if (!isPowerOfTwo(total)) {
@@ -35,7 +34,6 @@ export const matchMaker = teams => {
 /**
  * @param num to test of shape 2^n, n > 0
  */
-
 export const isPowerOfTwo = num => {
   if (num <= 0) {
     return false;
