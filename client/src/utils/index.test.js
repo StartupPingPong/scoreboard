@@ -18,11 +18,13 @@ describe("Given 2^n teams, it returns paired matches", () => {
     });
   });
 
-  describe("isPowerOfTwo validates numbers correctly", () => {
-    let testArr = [0, 1, 2, 3, 4, 7, 8, 9, 10, 256, -16, "a"];
+  describe("support functions work correctly", () => {
+    describe("isPowerOfTwo validates numbers correctly", () => {
+      let testArr = [0, 1, 2, 3, 4, 7, 8, 9, 10, 256, -16, "a"];
 
-    it("returns the expected answer", () => {
-      expect(testArr.map(e => isPowerOfTwo(e))).toMatchSnapshot();
+      it("returns the expected answer", () => {
+        expect(testArr.map(e => isPowerOfTwo(e))).toMatchSnapshot();
+      });
     });
   });
 });
