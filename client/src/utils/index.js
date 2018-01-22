@@ -1,3 +1,4 @@
+import _ from "lodash";
 import shuffle from "shuffle-array";
 
 let config = { copy: true };
@@ -10,6 +11,7 @@ let config = { copy: true };
  */
 export const matchMaker = teams => {
   const total = teams.length;
+
   if (!isPowerOfTwo(total)) {
     return [];
   }
@@ -22,12 +24,18 @@ export const matchMaker = teams => {
   const shuffledLowerHalf = shuffle(lowerHalf, config);
 
   //TODO: use reduce for a clear solution
-  const matches = shuffledUpperHalf.map((team, index) => ({
-    match: {
-      home: team,
-      away: shuffledLowerHalf[index]
+  const matches = _.zipWith(
+    shuffledUpperHalf,
+    shuffledLowerHalf,
+    (team, index) => {
+      return {
+        match: {
+          home: team,
+          away: shuffledLowerHalf[index]
+        }
+      };
     }
-  }));
+  );
   return matches;
 };
 
