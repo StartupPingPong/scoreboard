@@ -16,3 +16,14 @@ Array [
   false,
 ]
 `;
+
+exports[`support functions work correctly previousPowerOfTwo retuns the immediate power of two less than the input returns valid powers of two 1`] = `
+Array [
+  2,
+  2,
+  4,
+  16,
+  0,
+  0,
+]
+`;

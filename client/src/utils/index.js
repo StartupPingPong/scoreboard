@@ -4,10 +4,18 @@ import shuffle from "shuffle-array";
 let config = { copy: true };
 
 /**
- * Function to make matches between 2^n teams
- * @param teams array
- *
+ * @param teams any number of teams
  * @returns matches
+ */
+export const tournamentMaker = teams => {
+  return matchMaker(teams);
+};
+
+/**
+ * Function to make matches between 2^n teams
+ * @param {array} teams
+ *
+ * @return {array} matches
  */
 export const matchMaker = teams => {
   const total = teams.length;
@@ -27,11 +35,11 @@ export const matchMaker = teams => {
   const matches = _.zipWith(
     shuffledUpperHalf,
     shuffledLowerHalf,
-    (team, index) => {
+    (home, away) => {
       return {
         match: {
-          home: team,
-          away: shuffledLowerHalf[index]
+          home,
+          away
         }
       };
     }
@@ -43,12 +51,23 @@ export const matchMaker = teams => {
  * @param num to test of shape 2^n, n > 0
  */
 export const isPowerOfTwo = num => {
-  if (num <= 0) {
+  if (num <= 0 || isNaN(num)) {
     return false;
   }
   if (num % 2 === 0) {
     return num / 2 === 1 ? true : isPowerOfTwo(num / 2);
   } else {
     return false;
+  }
+};
+
+export const previousPowerOfTwo = num => {
+  if (num <= 0 || isNaN(num)) {
+    return 0;
+  }
+  if (num / 2 >= 2) {
+    return 2 * previousPowerOfTwo(num / 2);
+  } else {
+    return 2;
   }
 };

@@ -1,5 +1,10 @@
 import enzyme from "enzyme";
-import { matchMaker, tournamentMaker, isPowerOfTwo } from "./";
+import {
+  matchMaker,
+  tournamentMaker,
+  isPowerOfTwo,
+  previousPowerOfTwo
+} from "./";
 
 describe("Given 2^n teams, it returns paired matches", () => {
   let teams = ["a", "b", "c", "d", "e", "f", "g", "h"];
@@ -23,12 +28,15 @@ describe("Given 2^n teams, it returns paired matches", () => {
 
 describe("Given an odd number of teams, it returns the first leg of a tournament", () => {
   let teams = ["a", "b", "c", "d", "e", "f", "g"];
+  let matches;
 
   beforeEach(() => {
-    let matches = tournamentMaker(teams);
+    matches = tournamentMaker(teams);
   });
 
-  it("returns an object containing the first leg of matches", () => {});
+  it("returns an object containing the first leg of matches", () => {
+    expect(matches.length).toEqual(teams.length - 3);
+  });
 });
 
 describe("support functions work correctly", () => {
@@ -37,6 +45,14 @@ describe("support functions work correctly", () => {
 
     it("returns the expected answer", () => {
       expect(testArr.map(e => isPowerOfTwo(e))).toMatchSnapshot();
+    });
+  });
+
+  describe("previousPowerOfTwo retuns the immediate power of two less than the input", () => {
+    let testArr = [2, 3, 7, 17, -15, "a"];
+
+    it("returns valid powers of two", () => {
+      expect(testArr.map(e => previousPowerOfTwo(e))).toMatchSnapshot();
     });
   });
 });
