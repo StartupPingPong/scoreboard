@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Given 2^n teams, it returns paired matches support functions work correctly isPowerOfTwo validates numbers correctly returns the expected answer 1`] = `
+exports[`support functions work correctly isPowerOfTwo validates numbers correctly returns the expected answer 1`] = `
 Array [
   false,
   false,
