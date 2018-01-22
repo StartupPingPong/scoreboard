@@ -47,6 +47,7 @@ describe("support functions work correctly", () => {
       expect(testArr.map(e => isPowerOfTwo(e))).toMatchSnapshot();
     });
   });
+});
 
   describe("previousPowerOfTwo retuns the immediate power of two less than the input", () => {
     let testArr = [2, 3, 7, 17, -15, "a"];
